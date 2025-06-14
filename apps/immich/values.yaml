@@ -13,7 +13,9 @@ postgresql:
   enabled: true
   auth:
     username: fran
-    existingSecret: immich-postgres-secret
+    existingSecret: immich-secrets
+    secretKeys:
+      password: postgres-password
     database: immich
   primary:
     persistence:
