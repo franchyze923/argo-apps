@@ -2,11 +2,10 @@ immich:
   persistence:
     library:
       enabled: true
-      existingClaim: "immich-library"
-      storageClass: "" 
+      # existingClaim: "immich-library"
+      # storageClass: "" 
     config:
       enabled: true
-      storageClass: "longhorn"
       size: 1Gi
 
 postgresql:
@@ -19,7 +18,6 @@ postgresql:
     database: immich
   primary:
     persistence:
-      storageClass: "longhorn"
       size: 8Gi
 
 redis:
@@ -28,7 +26,6 @@ redis:
   master:
     persistence:
       enabled: true
-      storageClass: "longhorn"
       size: 2Gi
 
 ingress:
