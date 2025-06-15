@@ -2,11 +2,7 @@ immich:
   persistence:
     library:
       enabled: true
-      # existingClaim: "immich-library"
-      # storageClass: "" 
-    config:
-      enabled: true
-      size: 1Gi
+      existingClaim: "immich-library"
 
 postgresql:
   enabled: true
@@ -27,7 +23,3 @@ redis:
     persistence:
       enabled: true
       size: 2Gi
-
-ingress:
-  main:
-    enabled: false
