@@ -10,7 +10,7 @@ expose:
 
 externalURL: https://192.168.40.86
 
-harborAdminPassword: YourNewPassword123!
+harborAdminPassword: YourNewPassword123!!
 
 persistence:
   enabled: true
