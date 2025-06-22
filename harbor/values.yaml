@@ -1,0 +1,32 @@
+expose:
+  type: loadBalancer
+  tls:
+    enabled: true
+    certSource: auto
+    auto:
+      commonName: 192.168.40.86
+  loadBalancer:
+    IP: 192.168.40.86
+
+externalURL: https://192.168.40.86
+
+harborAdminPassword: YourNewPassword123!
+
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    registry:
+      storageClass: "nfs-csi"
+      size: 10Gi
+    jobservice:
+      storageClass: "nfs-csi"
+      size: 1Gi
+    database:
+      storageClass: "nfs-csi"
+      size: 5Gi
+    redis:
+      storageClass: "nfs-csi"
+      size: 1Gi
+    trivy:
+      storageClass: "nfs-csi"
+      size: 5Gi
