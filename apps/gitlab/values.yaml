@@ -1,0 +1,61 @@
+global:
+  hosts:
+    domain: gitlab.local
+    https: false
+
+  ingress:
+    configureCertmanager: false
+    tls:
+      enabled: false
+
+  editions: ce
+
+  # Optional: external URL if you want GitLab to generate links properly
+  externalUrl: http://gitlab.local
+
+nginx-ingress:
+  enabled: false
+
+gitlab:
+  webservice:
+    service:
+      type: LoadBalancer
+      loadBalancerIP: 192.168.40.87  # Your desired static IP from MetalLB or cloud LB
+    ingress:
+      enabled: false
+
+  gitaly:
+    persistence:
+      storageClass: nfs-csi
+      size: 10Gi
+
+postgresql:
+  install: true
+  postgresqlPassword: gitlabpass
+  persistence:
+    storageClass: nfs-csi
+    size: 10Gi
+
+redis:
+  install: true
+  password: redispass
+  master:
+    persistence:
+      storageClass: nfs-csi
+      size: 5Gi
+
+minio:
+  install: true
+  accessKey: gitlabminio
+  secretKey: gitlabminiosecret
+  persistence:
+    storageClass: nfs-csi
+    size: 10Gi
+
+registry:
+  enabled: true
+  storage:
+    secret: registry-storage
+    key: config
+  ingress:
+    enabled: false
