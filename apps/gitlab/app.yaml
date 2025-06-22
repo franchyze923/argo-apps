@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://charts.gitlab.io
     chart: gitlab
-    targetRevision: 7.11.0 # or latest
+    targetRevision: latest
     helm:
       valueFiles:
         - https://raw.githubusercontent.com/franchyze923/argo-apps/main/apps/gitlab/values.yaml
@@ -21,3 +21,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=true
